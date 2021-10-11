@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :users do
       collection do
         get 'reserve', to: 'users#reserve'
+        post 'reserve', to: 'users#update'
       end
     end
   end
