@@ -1,0 +1,31 @@
+<h1>預約填單</h1>
+<%= form_for current_user, url: reserve_users_path, method: 'post' do |f| %>
+<div>
+<%= f.label :name, '姓名'%>
+<%= f.text_field :name%>
+</div>
+
+<div>
+  <%= f.label :email, '信箱'%>
+  <%= f.email_field :email %>
+</div>
+
+<div>
+  <%= f.label :address, '地址' %>
+  <%= f.text_field :address %>
+</div>
+
+<div>
+  <%= f.label :cellphone, '行動電話'%>
+  <%= f.text_field :cellphone %>
+</div>
+
+<div>
+  <%= f.label :telephone, '電話'%>
+  <%= f.text_field :telephone %>
+</div>
+
+<div>
+  <%= f.submit '送出'%>
+</div>
+<% end %>
