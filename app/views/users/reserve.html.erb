@@ -2,7 +2,7 @@
 <%= form_for current_user, url: reserve_users_path, method: 'post' do |f| %>
 <div>
 <%= f.label :name, '姓名'%>
-<%= f.text_field :name%>
+<%= f.text_field :name %>
 </div>
 
 <div>
@@ -22,9 +22,13 @@
 
 <div>
   <%= f.label :telephone, '電話'%>
-  <%= f.text_field :telephone %>
+  <%= number_to_phone('0541754301', :groupings => [4, 3, 3], :delimiter => "-")  %>
 </div>
 
+<div>
+  <%= f.label :appointment, '預約時間'%>
+  <%= date_field(:date, :born_on)%>
+</div>
 <div>
   <%= f.submit '送出'%>
 </div>
