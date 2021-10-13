@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.update(user_params)
       redirect_to root_path ,notice: "預約成功"
+      p aaa
     else
       render :reserve
     end
