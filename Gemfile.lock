@@ -293,7 +293,7 @@ DEPENDENCIES
   selenium-webdriver
   sidekiq (~> 6.2, >= 6.2.2)
   sidekiq-scheduler (~> 3.1)
-  spring
+  spring (~> 3.0.0)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
