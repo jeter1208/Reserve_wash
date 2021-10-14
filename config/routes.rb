@@ -4,11 +4,12 @@ Rails.application.routes.draw do
 
   devise_for :users 
   devise_scope :users do
-    resources :users do
-      collection do
-        get 'reserve', to: 'users#reserve'
-        post 'reserve', to: 'users#update'
-      end
+  end
+
+  resources :reserves do
+    collection do
+      get 'reserve', to: 'reserves#reserve'
+      post 'reserve', to: 'reserves#update'
     end
   end
 end

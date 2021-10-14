@@ -1,8 +1,8 @@
 <h1>預約填單</h1>
-<%= form_for current_user, url: reserve_users_path, method: 'post' do |f| %>
+<%= form_for @reserve  do |f| %>
 <div>
-<%= f.label :name, '姓名'%>
-<%= f.text_field :name%>
+<%= f.label :name, '姓名' %>
+<%= f.text_field :name %>
 </div>
 
 <div>
@@ -22,10 +22,16 @@
 
 <div>
   <%= f.label :telephone, '電話'%>
-  <%= f.text_field :telephone %>
+  <%= telephone_field(:user, :telephone) %>
 </div>
 
+<div>
+  <%= f.label :appointment, '預約時間'%>
+  <%= date_field(:date, :born_on)%>
+</div>
 <div>
   <%= f.submit '送出'%>
 </div>
 <% end %>
+
+<%# number_to_phone(:telephone, :groupings => [4, 3, 3], :delimiter => "-")  %> 
