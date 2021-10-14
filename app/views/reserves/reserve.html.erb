@@ -1,5 +1,5 @@
 <h1>預約填單</h1>
-<%= form_for current_user, url: reserve_users_path, method: 'post' do |f| %>
+<%= form_for @reserve  do |f| %>
 <div>
 <%= f.label :name, '姓名' %>
 <%= f.text_field :name %>
