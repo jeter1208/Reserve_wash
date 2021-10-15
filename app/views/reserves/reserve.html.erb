@@ -1,5 +1,5 @@
 <h1>預約填單</h1>
-<%= form_for @reserve  do |f| %>
+<%= form_for @reserve, url: reserve_user_index_path do |f| %>
 <div>
 <%= f.label :name, '姓名' %>
 <%= f.text_field :name %>
@@ -22,12 +22,12 @@
 
 <div>
   <%= f.label :telephone, '電話'%>
-  <%= telephone_field(:user, :telephone) %>
+  <%= telephone_field(:reserve, :telephone) %>
 </div>
 
 <div>
   <%= f.label :appointment, '預約時間'%>
-  <%= date_field(:date, :born_on)%>
+  <%= date_field(:appointment, :born_on)%>
 </div>
 <div>
   <%= f.submit '送出'%>
