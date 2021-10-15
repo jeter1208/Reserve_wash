@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :reserves do
     collection do
       get 'reserve', to: 'reserves#reserve'
-      post 'reserve', to: 'reserves#update'
+      post 'reserve', to: 'reserves#create'
     end
   end
 end

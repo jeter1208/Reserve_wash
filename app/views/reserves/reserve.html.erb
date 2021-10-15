@@ -22,12 +22,12 @@
 
 <div>
   <%= f.label :telephone, '電話'%>
-  <%= telephone_field(:user, :telephone) %>
+  <%= telephone_field(:reserve, :telephone) %>
 </div>
 
 <div>
   <%= f.label :appointment, '預約時間'%>
-  <%= date_field(:date, :born_on)%>
+  <%= date_field(:appointment, :born_on)%>
 </div>
 <div>
   <%= f.submit '送出'%>
