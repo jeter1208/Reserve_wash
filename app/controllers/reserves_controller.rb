@@ -8,7 +8,7 @@ class ReservesController < ApplicationController
     if @reserve.save
       redirect_to root_path, notice:'預約成功'
     else
-      redirect_to root_path, notice:'失敗'
+      render :reserve, notice:'失敗'
     end
   end
 
