@@ -4,11 +4,11 @@ class ReservesController < ApplicationController
   end
 
   def create
-    @reserve = current_user.reserves.new(reserve_params)
+    @reserve = Reserve.new(reserve_params)
     if @reserve.save
       redirect_to root_path, notice:'預約成功'
     else
-      redirect_to root_path, notice:'失敗'
+      render :reserve, notice:'失敗'
     end
   end
 

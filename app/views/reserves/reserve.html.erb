@@ -1,23 +1,35 @@
 <h1>預約填單</h1>
 <%= form_for @reserve, url: reserve_user_index_path do |f| %>
 <div>
-<%= f.label :name, '姓名' %>
-<%= f.text_field :name %>
+  <%= f.label :name, '姓名' %>
+  <%= f.text_field :name %>
+	<% if f.object.errors[:name] %>
+		<span class='text-red-600'><%= f.object.errors[:name].first %></span>
+	<% end %>
 </div>
 
 <div>
   <%= f.label :email, '信箱'%>
   <%= f.email_field :email %>
+  <% if f.object.errors[:email] %>
+		<span class='text-red-600'><%= f.object.errors[:email].first %></span>
+	<% end %>
 </div>
 
 <div>
   <%= f.label :address, '地址' %>
   <%= f.text_field :address %>
+  <% if f.object.errors[:address] %>
+		<span class='text-red-600'><%= f.object.errors[:address].first %></span>
+	<% end %>
 </div>
 
 <div>
   <%= f.label :cellphone, '行動電話'%>
   <%= f.text_field :cellphone %>
+  	<% if f.object.errors[:cellphone] %>
+			<span class='text-red-600'><%= f.object.errors[:cellphone].first %></span>
+		<% end %>
 </div>
 
 <div>
@@ -26,8 +38,20 @@
 </div>
 
 <div>
+  <%= f.label :brand, '廠牌' %>
+  <%= f.text_field :brand %>
+</div>
+
+<div>
+  <%= f.label :type, '直立式/滾筒式'%>
+  <%= f.select :type,["直立式", "滾筒式"]%>
+</div>
+<div>
   <%= f.label :appointment, '預約時間'%>
   <%= date_field(:appointment, :born_on)%>
+  	<% if f.object.errors[:appointment] %>
+			<span class='text-red-600'><%= f.object.errors[:appointment].first %></span>
+		<% end %>
 </div>
 <div>
   <%= f.submit '送出'%>
