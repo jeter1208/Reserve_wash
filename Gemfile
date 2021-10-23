@@ -23,6 +23,11 @@ gem 'sidekiq-scheduler', '~> 3.1'
 gem 'redis', '~> 4.0'
 
 gem "rails-i18n"
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'figaro'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
