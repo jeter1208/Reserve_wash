@@ -10,8 +10,7 @@ class ReservesController < ApplicationController
     if @reserve.save
       redirect_to root_path, notice:'預約成功'
     else
-      flash.now[:alert] = @reserve.errors[:address].join("、")
-      render :reserve, notice:'失敗'
+      render :reserve
     end
   end
 
