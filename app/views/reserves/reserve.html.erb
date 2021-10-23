@@ -38,17 +38,17 @@
 </div>
 
 <div>
-  <%= f.label :brand, '廠牌' %>
-  <%= f.text_field :brand %>
+  <%= f.label :brand, '洗衣機廠牌' %>
+  <%= f.text_field :brand, placeholder: '例如:國際、三洋' %>
 </div>
 
 <div>
-  <%= f.label :type, '直立式/滾筒式'%>
-  <%= f.select :type,["直立式", "滾筒式"]%>
+  <%= f.label :genre, '直立式/滾筒式'%>
+  <%= f.select :genre,["直立式", "滾筒式"] ,class: 'border-3' %>
 </div>
 <div>
   <%= f.label :appointment, '預約時間'%>
-  <%= date_field(:appointment, :born_on)%>
+  <%= f.date_field :appointment%>
   	<% if f.object.errors[:appointment] %>
 			<span class='text-red-600'><%= f.object.errors[:appointment].first %></span>
 		<% end %>

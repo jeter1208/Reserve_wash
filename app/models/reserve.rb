@@ -1,7 +1,7 @@
 class Reserve < ApplicationRecord
   belongs_to :user 
 
-  validates :name_error, :email_error, :address_error, :cellphone_error, :appointment_error, presence: true
+  validates :name, :email, :address, :cellphone, :appointment, presence: true
 
   private
   def name_error
