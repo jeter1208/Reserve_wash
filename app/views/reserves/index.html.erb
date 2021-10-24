@@ -1,0 +1,21 @@
+<h1>查看預約紀錄</h1>
+
+
+<ul>
+<% @reserves.each do |reserve| %>
+  <li>
+    <%= reserve.name %>
+    <%= reserve.email %>
+    <%= reserve.address %> 
+    <%= reserve.cellphone %>
+    <%= reserve.telephone %>
+    <%= reserve.brand %>
+    <%= reserve.genre %>
+    <%= reserve.appointment %>
+    <%= link_to '編輯', edit_reserve_path(reserve) %>
+    <%= link_to '刪除', reserve_path(reserve),
+                        method: 'delete',
+						data: { confirm: '確定嗎？', id: reserve.id } %>
+  </li>
+<% end %>
+</ul>
