@@ -35,8 +35,9 @@ class ReservesController < ApplicationController
 	end
 
   def destroy
+
 		@reserve.update(deleted_at: Time.now)
-		redirect_to root_path
+		redirect_to '/reserves'
 	end
 
   private
@@ -45,6 +46,6 @@ class ReservesController < ApplicationController
     end
 
     def find_user_reserve
-      @reserve = current_user.reserves.find(params[:id])
+      @reserve = current_user.reserves.friendly.find(params[:id])
     end
 end

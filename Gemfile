@@ -30,8 +30,9 @@ gem 'omniauth-google-oauth2'
 gem 'figaro'
 
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
-
+gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 gem 'paranoia', '~> 2.4', '>= 2.4.3'
+gem 'babosa'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
