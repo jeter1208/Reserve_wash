@@ -1,0 +1,19 @@
+<h1>查看預約紀錄</h1>
+
+
+<ul>
+<% @reserves.each do |reserve| %>
+  <li>
+    <%= reserve.name %>
+    <%= reserve.email %>
+    <%= reserve.address %> 
+    <%= reserve.cellphone %>
+    <%= reserve.telephone %>
+    <%= reserve.brand %>
+    <%= reserve.genre %>
+    <%= reserve.appointment %>
+    <%= reserve.created_at.strftime("%Y/%m/%d %I:%M %p") %>
+    
+  </li>
+<% end %>
+</ul>

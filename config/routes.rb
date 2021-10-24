@@ -4,11 +4,15 @@ Rails.application.routes.draw do
 
   devise_for :users , controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   devise_scope :users do
-    resources :user do
-      collection do
-        get 'reserve', to: 'reserves#reserve'
-        post 'reserve', to: 'reserves#create'
-      end
+  end
+
+  resources :reserves do
+    collection do
+      get 'new', to: 'reserves#new'
+      post 'new', to: 'reserves#create'
+      get 'index', to: 'reserves#index'
+      get 'edit', to: 'reserves#edit'
+      post 'edit', to: 'reserves#update'
     end
   end
 end

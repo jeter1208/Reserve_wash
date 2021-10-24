@@ -12,6 +12,7 @@ module ReserveWash
     config.load_defaults 6.1
     config.i18n.default_locale = "zh-TW" 
     config.time_zone = "Taipei"
+    Time::DATE_FORMATS.merge!(:default => '%Y/%m/%d', :ymd => '%Y/%m/%d %I:%M %p')
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
