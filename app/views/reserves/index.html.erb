@@ -12,8 +12,10 @@
     <%= reserve.brand %>
     <%= reserve.genre %>
     <%= reserve.appointment %>
-    <%= reserve.created_at.strftime("%Y/%m/%d %I:%M %p") %>
-    
+    <%= link_to '編輯', edit_reserve_path(reserve) %>
+    <%= link_to '刪除', reserve_path(reserve),
+                        method: 'delete',
+						data: { confirm: '確定嗎？', id: reserve.id } %>
   </li>
 <% end %>
 </ul>
