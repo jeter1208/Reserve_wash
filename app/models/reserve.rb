@@ -2,9 +2,9 @@ class Reserve < ApplicationRecord
   belongs_to :user
 
   acts_as_paranoid
-
+  
   validates :name, :email, :address, :cellphone, :appointment, presence: true
-
+  
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
   # # 原本是input.to_s.parameterize，但是parameterize只支援
