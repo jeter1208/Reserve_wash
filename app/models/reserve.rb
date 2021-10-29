@@ -1,8 +1,10 @@
 class Reserve < ApplicationRecord
   belongs_to :user
-
-  acts_as_paranoid
   
+  acts_as_paranoid
+  # 假刪除
+  resourcify
+  # rolify套件
   validates :name, :email, :address, :cellphone, :appointment, presence: true
   
   extend FriendlyId

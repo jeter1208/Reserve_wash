@@ -1,7 +1,7 @@
 class ReservesController < ApplicationController
   before_action  :authenticate_user!
   before_action  :find_user_reserve, only: [:edit, :update, :destroy]
-
+  authorize_resource
   def index
     @reserves = current_user.reserves.order(id: :desc)
   end
