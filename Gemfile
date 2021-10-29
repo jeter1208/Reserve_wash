@@ -28,19 +28,21 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'figaro'
-
+gem 'devise', '~> 4.8'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
-
+gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 gem 'paranoia', '~> 2.4', '>= 2.4.3'
+gem 'babosa'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
+gem 'rolify'
+gem 'cancancan', '~> 3.3'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-gem 'devise', '~> 4.8'
+
 gem 'resque', '~> 2.1'
 
 group :development, :test do
