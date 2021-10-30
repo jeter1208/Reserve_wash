@@ -3,7 +3,7 @@ class ReservesController < ApplicationController
   before_action  :find_user_reserve, only: [:edit, :update, :destroy]
   authorize_resource
   def index
-    @reserves = current_user.reserves.order(id: :desc)
+    @reserves = current_user.reserves.all.order(id: :desc)
   end
 
   def new
@@ -13,6 +13,7 @@ class ReservesController < ApplicationController
   def create
     @reserve = current_user.reserves.new(reserve_params)
     if @reserve.save
+      ContactMailer.say_hello_to(@reserve).deliver_now
       redirect_to root_path, notice:'填寫成功'
     else
       render :new, notice: '失敗'

@@ -32,13 +32,18 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
+   # 設定smpt伺服器
+  config.action_mailer.delivery_method = :smtp
+  # 必要的host
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # 藏金鑰
+  config.action_mailer.smtp_settings = config_for(:email).symbolize_keys
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
-
-  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+ 
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
