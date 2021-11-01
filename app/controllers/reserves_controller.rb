@@ -43,7 +43,6 @@ class ReservesController < ApplicationController
 	end
 
   def destroy
-
 		@reserve.update(deleted_at: Time.now)
 		redirect_to '/reserves'
 	end

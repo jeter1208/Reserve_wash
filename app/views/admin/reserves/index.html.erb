@@ -1,0 +1,16 @@
+<h1>後台</h1>
+<tr>
+  <th>ID</th>
+  <th>Email</th>
+  <th>Actions</th>
+</tr>
+<% @reserves.each do |reserve| %>
+  <tr>
+    <td><%= reserve.name %></td>
+    <td><%= reserve.email %></td>
+    <%= link_to '編輯', edit_admin_reserve_path(reserve) %>
+    <%= link_to '刪除', admin_reserve_path(reserve),     
+                        method: 'delete',
+						data: { confirm: '確定嗎？', id: reserve.id } %>
+  </tr>
+<% end %>
