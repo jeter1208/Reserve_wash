@@ -5,8 +5,8 @@ class Ability
 
   def initialize(user) #這個 user 其實就是 devise 提供的 current_user
     if user.has_role?(:user) # not logged in
-      can :manage, Reserve #可以執行  Controller 裡的 new 和 create action
-      # cannot :manage,  Reserve   #無法執行 Controller 裡的  action
+      can :manage, Reserve #無法執行  Controller 裡的 new 和 create action
+      # can :manage,  Reserve   #可以執行 Controller 裡的  action
       # basic_read_only #呼叫基本權限設定 Medthod
     elsif user.has_role?(:admin) #如果 role 為 admin
       can :manage, :all #可管理所有資源

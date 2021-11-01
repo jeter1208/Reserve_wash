@@ -27,7 +27,7 @@ gem "rails-i18n"
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
-gem 'figaro'
+gem 'figaro', '~> 1.2'
 gem 'devise', '~> 4.8'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
 gem 'friendly_id', '~> 5.4', '>= 5.4.2'
@@ -72,3 +72,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "activesupport", "~> 6.1"
