@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
     authorize_resource
   def index
-    @users = Reserve.all
+    @users = User.all
   end
 end
