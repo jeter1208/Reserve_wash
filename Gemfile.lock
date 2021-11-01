@@ -336,13 +336,14 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activesupport (~> 6.1)
   babosa
   bootsnap (>= 1.4.4)
   byebug
   cancancan (~> 3.3)
   capybara (>= 3.26)
   devise (~> 4.8)
-  figaro
+  figaro (~> 1.2)
   foreman (~> 0.87.2)
   friendly_id (~> 5.4, >= 5.4.2)
   jbuilder (~> 2.7)

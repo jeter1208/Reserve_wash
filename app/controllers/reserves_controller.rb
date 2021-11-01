@@ -3,9 +3,8 @@ class ReservesController < ApplicationController
   before_action  :find_user_reserve, only: [:edit, :update, :destroy]
   authorize_resource
   def index
-    @reserves = current_user.reserves.order(id: :desc)
+    @reserves = current_user.reserves.all.order(id: :desc)
   end
-
   def new
     @reserve = current_user.reserves.new
   end
@@ -13,6 +12,15 @@ class ReservesController < ApplicationController
   def create
     @reserve = current_user.reserves.new(reserve_params)
     if @reserve.save
+      MailWorker.perform_at(5.seconds.from_now,
+                            @reserve.name,
+                            @reserve.cellphone,
+                            @reserve.address,
+                            @reserve.appointment,
+                            @reserve.brand,
+                            @reserve.genre,
+                            @reserve.telephone,
+                            @reserve.email)
       redirect_to root_path, notice:'填寫成功'
     else
       render :new, notice: '失敗'
@@ -42,7 +50,14 @@ class ReservesController < ApplicationController
 
   private
     def reserve_params
-      params.require(:reserve).permit(:name, :email, :telephone, :address, :cellphone, :appointment, :genre, :brand)
+      params.require(:reserve).permit(:name, 
+                                      :email, 
+                                      :telephone, 
+                                      :address, 
+                                      :cellphone, 
+                                      :appointment, 
+                                      :genre, 
+                                      :brand)
     end
 
     def find_user_reserve
