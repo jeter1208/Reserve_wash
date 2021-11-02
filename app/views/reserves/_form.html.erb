@@ -53,6 +53,10 @@
 		<% end %>
 </div>
 <div>
+  <%= f.label :remark, '備註'%>
+  <%= f.text_area :remark,placeholder: '其他特殊需求' %>
+</div>
+<div>
   <%= f.submit '送出'%>
 </div>
 <% end %>

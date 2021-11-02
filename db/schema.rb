@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_28_063732) do
+ActiveRecord::Schema.define(version: 2021_11_02_091105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -40,6 +55,8 @@ ActiveRecord::Schema.define(version: 2021_10_28_063732) do
     t.string "genre"
     t.datetime "deleted_at"
     t.string "slug"
+    t.string "status"
+    t.string "remark"
     t.index ["deleted_at"], name: "index_reserves_on_deleted_at"
     t.index ["slug"], name: "index_reserves_on_slug", unique: true
     t.index ["user_id"], name: "index_reserves_on_user_id"
