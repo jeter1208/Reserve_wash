@@ -1,6 +1,7 @@
 zh-TW:
   errors:
     messages:
+      You are not authorized to access this page: 權限不足
       expired: "已經過期，請重新申請一個"
       not_found: "找不到"
       already_confirmed: "已經驗證，請直接登入"

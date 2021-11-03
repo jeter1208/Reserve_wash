@@ -1,6 +1,6 @@
 class Reserve < ApplicationRecord
   belongs_to :user
-  
+  mount_uploader :image, ImageUploader
   acts_as_paranoid
   # 假刪除
   resourcify

@@ -1,4 +1,3 @@
-
 <div class="relative bg-white">
   <div class="absolute inset-0">
     <div class="absolute inset-y-0 left-0 w-1/2 "></div>
@@ -50,7 +49,7 @@
     </div>
     <div class="bg-white py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
       <div class="max-w-lg mx-auto lg:max-w-none">
-        <%= form_for(reserve) do |f| %>
+        <%= form_with(model: reserve, url: admin_reserve_path) do |f| %>
           <div>
             <%= f.label :name, '姓名' %>
             <%= f.text_field :name, class: "block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"%>
@@ -92,10 +91,10 @@
 
           <div>
             <%= f.label :genre, '直立式/滾筒式', class: 'block' %>
-            <%= f.select :genre,["直立式", "滾筒式"], class:"bg-white border-2" %>
+            <%= f.select :genre,["直立式", "滾筒式"], class:'bg-white' %>
           </div>
           <div>
-            <%= f.label :appointment, '此為希望預約時間 實際預約時間以公司為主',class: 'mt-2' %>
+            <%= f.label :appointment, '希望時間' %>
             <%= f.datetime_field :appointment, class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" %>
               <% if f.object.errors[:appointment] %>
                 <span class='text-red-600'><%= f.object.errors[:appointment].first %></span>
@@ -105,17 +104,16 @@
             <%= f.label :remark, '備註' %>
             <%= f.text_area :remark,placeholder: '其他特殊需求',class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md" %>
           </div>
-
           <div>
-            <%= f.label :image, '照片' %>
-            <%= f.file_field :image %>
+            <%= f.label :status, '預約單狀態' %>
+            <%= f.select :status, ['待確認', '預約成功','清洗完成']  %>
           </div>
-
           <div>
             <%= f.submit '送出' ,class: "inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-4"%>
           </div>
-          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
+
