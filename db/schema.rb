@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_02_091105) do
+ActiveRecord::Schema.define(version: 2021_11_02_092230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2021_11_02_091105) do
     t.string "genre"
     t.datetime "deleted_at"
     t.string "slug"
-    t.string "status"
+    t.string "status", default: "待確認"
     t.string "remark"
     t.index ["deleted_at"], name: "index_reserves_on_deleted_at"
     t.index ["slug"], name: "index_reserves_on_slug", unique: true

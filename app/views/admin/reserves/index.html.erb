@@ -1,8 +1,8 @@
-<h1 class= 'text-center'>預約單</h1>
+<h1 class= 'text-center'>所有預約單</h1>
 
 <div class="flex flex-col">
   <div class="-my-2 overflow-x-auto ">
-    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+    <div class="py-6 align-middle inline-block min-w-full sm:px-6 lg:px-8">
       <div class="shadow overflow-hidden border-b border-gray-200 ">
         <table class="min-w-full divide-y divide-gray-200">
           <thead class="bg-gray-50">
@@ -68,12 +68,13 @@
                 <%= reserve.genre %>
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                 <%= reserve.appointment %>
+                <%= reserve.appointment.strftime("%Y/%m/%d %p%H:%M") %>
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                 <%= reserve.appointment %>
+                 <%= reserve.status %>
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                 <%= link_to '查看', admin_reserve_path(reserve) %>
                  <%= link_to '編輯', edit_admin_reserve_path(reserve) %>
                  <%= link_to '刪除', admin_reserve_path(reserve),     
                                                 method: 'delete',

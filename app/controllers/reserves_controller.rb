@@ -1,6 +1,6 @@
 class ReservesController < ApplicationController
   before_action  :authenticate_user!
-  before_action  :find_user_reserve, only: [:edit, :update, :destroy]
+  before_action  :find_user_reserve, only: [:edit, :update, :destroy, :show]
   authorize_resource
   def index
     @reserves = current_user.reserves.all.order(id: :desc)
@@ -20,10 +20,11 @@ class ReservesController < ApplicationController
                             @reserve.brand,
                             @reserve.genre,
                             @reserve.telephone,
-                            @reserve.email)
+                            @reserve.email,
+                            @reserve.remark)
       redirect_to root_path, notice:'填寫成功'
     else
-      render :new, notice: '失敗'
+      render :new
     end
   end
 
@@ -56,7 +57,8 @@ class ReservesController < ApplicationController
                                       :cellphone, 
                                       :appointment, 
                                       :genre, 
-                                      :brand)
+                                      :brand,
+                                      :remark)
     end
 
     def find_user_reserve

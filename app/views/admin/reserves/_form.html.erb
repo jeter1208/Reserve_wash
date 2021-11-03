@@ -1,62 +1,119 @@
-<%= form_for(reserve) do |f| %>
-<div>
-  <%= f.label :name, '姓名' %>
-  <%= f.text_field :name %>
-	<% if f.object.errors[:name] %>
-		<span class='text-red-600'><%= f.object.errors[:name].first %></span>
-	<% end %>
+<div class="relative bg-white">
+  <div class="absolute inset-0">
+    <div class="absolute inset-y-0 left-0 w-1/2 "></div>
+  </div>
+  <div class="relative max-w-7xl mx-auto lg:grid lg:grid-cols-5">
+    <div class="bg-white py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12">
+      <div class="max-w-lg mx-auto">
+        <h2 class="text-2xl font-extrabold tracking-tight text-blue-400 sm:text-3xl">
+          衣級棒新北三重服務團隊
+        </h2>
+        <p class="mt-3 text-lg leading-6 text-black">
+          衣級棒專業洗衣機清洗-清洗內槽-秉持著一顆服務熱忱的心。讓您不再為洗衣服而感到困擾， 給您一個舒適潔淨的洗衣空間。將每個家庭洗衣機的髒汙轉化成煥然一新的面貌。
+        </p>
+        <dl class="mt-8 text-base text-black">
+          <div>
+            <dt class="sr-only">Postal address</dt>
+            <dd>
+              <p>新北市三重區XX街XX巷XX號</p>
+            </dd>
+          </div>
+          <div class="mt-6">
+            <dt class="sr-only">Phone number</dt>
+            <dd class="flex">
+              <!-- Heroicon name: outline/phone -->
+              <svg class="flex-shrink-0 h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <span class="ml-3">
+                0933750166 劉師傅
+              </span>
+            </dd>
+          </div>
+          <div class="mt-3">
+            <dt class="sr-only">Email</dt>
+            <dd class="flex">
+              <!-- Heroicon name: outline/mail -->
+              <svg class="flex-shrink-0 h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span class="ml-3">
+                washyou178@gmail.com
+              </span>
+            </dd>
+          </div>
+        </dl>
+          <a href="https://www.facebook.com/LINE0933750166" class= 'block text-blue-400 text-2xl mt-10 '>衣級棒-新北三重粉絲專頁</a>
+
+      </div>
+    </div>
+    <div class="bg-white py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
+      <div class="max-w-lg mx-auto lg:max-w-none">
+        <%= form_with(model: reserve, url: admin_reserve_path) do |f| %>
+          <div>
+            <%= f.label :name, '姓名' %>
+            <%= f.text_field :name, class: "block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"%>
+            <% if f.object.errors[:name] %>
+	            <span class='text-red-600'><%= f.object.errors[:name].first %></span>
+	          <% end %>
+          </div>
+          <div>
+            <%= f.label :email, '信箱'%>
+            <%= f.email_field :email, class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" %>
+              <% if f.object.errors[:email] %>
+		            <span class='text-red-600'><%= f.object.errors[:email].first %></span>
+	            <% end %>
+          </div>
+          <div>
+            <%= f.label :address, '地址' %>
+            <%= f.text_field :address, class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" %>
+              <% if f.object.errors[:address] %>
+		            <span class='text-red-600'><%= f.object.errors[:address].first %></span>
+            	<% end %>
+          </div>
+          <div>
+           <%= f.label :cellphone, '行動電話' %>
+           <%= f.text_field :cellphone, class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" %>
+             <% if f.object.errors[:cellphone] %>
+			         <span class='text-red-600'><%= f.object.errors[:cellphone].first %></span>
+		         <% end %>
+       
+          </div>
+          <div>
+            <%= f.label :telephone, '電話' %>
+            <%= telephone_field(:reserve, :telephone,class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md") %>
+          </div>
+
+          <div>
+            <%= f.label :brand, '洗衣機廠牌' %>
+            <%= f.text_field :brand, placeholder: '例如:國際、三洋',class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" %>
+          </div>
+
+          <div>
+            <%= f.label :genre, '直立式/滾筒式', class: 'block' %>
+            <%= f.select :genre,["直立式", "滾筒式"], class:'bg-white' %>
+          </div>
+          <div>
+            <%= f.label :appointment, '希望時間' %>
+            <%= f.datetime_field :appointment, class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" %>
+              <% if f.object.errors[:appointment] %>
+                <span class='text-red-600'><%= f.object.errors[:appointment].first %></span>
+              <% end %>
+          </div>
+          <div>
+            <%= f.label :remark, '備註' %>
+            <%= f.text_area :remark,placeholder: '其他特殊需求',class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md" %>
+          </div>
+          <div>
+            <%= f.label :status, '預約單狀態' %>
+            <%= f.select :status, ['待確認', '預約成功']  %>
+          </div>
+          <div>
+            <%= f.submit '送出' ,class: "inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-4"%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div>
-  <%= f.label :email, '信箱'%>
-  <%= f.email_field :email %>
-  <% if f.object.errors[:email] %>
-		<span class='text-red-600'><%= f.object.errors[:email].first %></span>
-	<% end %>
-</div>
-
-<div>
-  <%= f.label :address, '地址' %>
-  <%= f.text_field :address %>
-  <% if f.object.errors[:address] %>
-		<span class='text-red-600'><%= f.object.errors[:address].first %></span>
-	<% end %>
-</div>
-
-<div>
-  <%= f.label :cellphone, '行動電話'%>
-  <%= f.text_field :cellphone %>
-  	<% if f.object.errors[:cellphone] %>
-			<span class='text-red-600'><%= f.object.errors[:cellphone].first %></span>
-		<% end %>
-</div>
-
-<div>
-  <%= f.label :telephone, '電話'%>
-  <%= telephone_field(:reserve, :telephone) %>
-</div>
-
-<div>
-  <%= f.label :brand, '洗衣機廠牌' %>
-  <%= f.text_field :brand, placeholder: '例如:國際、三洋' %>
-</div>
-
-<div>
-  <%= f.label :genre, '直立式/滾筒式'%>
-  <%= f.select :genre,["直立式", "滾筒式"] ,class: 'border-3' %>
-</div>
-<div>
-  <%= f.label :appointment, '預約時間'%>
-  <%= f.date_field :appointment%>
-  	<% if f.object.errors[:appointment] %>
-			<span class='text-red-600'><%= f.object.errors[:appointment].first %></span>
-		<% end %>
-</div>
-<div>
-  <%= f.label :remark, '備註'%>
-  <%= f.text_area :remark %>
-</div>
-<div>
-  <%= f.submit '送出'%>
-</div>
-<% end %>

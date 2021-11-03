@@ -21,7 +21,7 @@ gem 'sidekiq', '~> 6.2', '>= 6.2.2'
 gem 'sidekiq-scheduler', '~> 3.1'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
-
+gem 'carrierwave', '~> 2.2', '>= 2.2'
 gem "rails-i18n"
 
 gem 'omniauth'

@@ -1,8 +1,8 @@
 class Admin::ReservesController < ApplicationController
-    before_action  :find_user_reserve, only: [:edit, :update, :destroy]
-    authorize_resource
+    before_action  :find_user_reserve, only: [:edit, :update, :destroy, :show]
+    authorize_resource :admin
     def index
-      @reserves = Reserve.all
+      @reserves = Reserve.order(id: :desc)
     end
     # def new
     #   @reserve = current_user.reserves.new
@@ -34,7 +34,7 @@ class Admin::ReservesController < ApplicationController
   
     def update
           if @reserve.update(reserve_params)
-              redirect_to root_path, notice:'更改成功'
+              redirect_to admin_reserves_path , notice:'更改成功'
           else
               ## 待處理
               render :edit
@@ -55,10 +55,12 @@ class Admin::ReservesController < ApplicationController
                                         :cellphone, 
                                         :appointment, 
                                         :genre, 
-                                        :brand)
+                                        :brand,
+                                        :status,
+                                        :remark)
       end
   
       def find_user_reserve
-        @reserve = current_user.reserves.friendly.find(params[:id])
+        @reserve = Reserve.friendly.find(params[:id])
       end
 end
