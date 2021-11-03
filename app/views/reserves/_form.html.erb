@@ -92,10 +92,10 @@
 
           <div>
             <%= f.label :genre, '直立式/滾筒式', class: 'block' %>
-            <%= f.select :genre,["直立式", "滾筒式"], class:'bg-white' %>
+            <%= f.select :genre,["直立式", "滾筒式"], class:"bg-white border-2" %>
           </div>
           <div>
-            <%= f.label :appointment, '希望時間' %>
+            <%= f.label :appointment, '此為希望預約時間 實際預約時間以公司為主',class: 'mt-2' %>
             <%= f.datetime_field :appointment, class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" %>
               <% if f.object.errors[:appointment] %>
                 <span class='text-red-600'><%= f.object.errors[:appointment].first %></span>
@@ -105,6 +105,12 @@
             <%= f.label :remark, '備註' %>
             <%= f.text_area :remark,placeholder: '其他特殊需求',class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md" %>
           </div>
+
+          <div>
+            <%= f.label :image, '照片' %>
+            <%= f.file_field :image %>
+          </div>
+
           <div>
             <%= f.submit '送出' ,class: "inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-4"%>
           </div>

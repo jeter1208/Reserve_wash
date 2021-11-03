@@ -81,7 +81,7 @@
                                           method: 'delete',
 						                        data: { confirm: '確定嗎？', id: reserve.id } %>
               
-              <% elsif reserve.status === '預約成功' %>
+              <% elsif reserve.status === '預約成功' || '清洗完成' %>
                 <td class="px-6 py-4 whitespace-nowrap text-center text-lg font-medium">
                  <%= link_to '查看', reserve_path(reserve) %>
                 </td>

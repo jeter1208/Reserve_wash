@@ -58,7 +58,8 @@ class ReservesController < ApplicationController
                                       :appointment, 
                                       :genre, 
                                       :brand,
-                                      :remark)
+                                      :remark,
+                                      :image)
     end
 
     def find_user_reserve
