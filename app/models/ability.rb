@@ -4,7 +4,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user) #這個 user 其實就是 devise 提供的 current_user
-    if user.has_role?(:user) # not logged in
+    if user.has_role?(:user) # 使用者是會員
       can :manage, Reserve #無法執行  Controller 裡的 new 和 create action
       # can :manage,  Reserve   #可以執行 Controller 裡的  action
       # basic_read_only #呼叫基本權限設定 Medthod

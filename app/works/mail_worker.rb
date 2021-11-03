@@ -1,7 +1,7 @@
 class MailWorker
     include Sidekiq::Worker
     sidekiq_options queue: :default, retry: 3
-  def perform(name,cellphone,address,appointment,telephone,genre,brand,email)
+  def perform(name, cellphone, address, appointment, telephone, genre, brand, email, remark)
     @name = name
     @cellphone = cellphone
     @address = address
@@ -10,6 +10,8 @@ class MailWorker
     @genre = genre
     @brand = brand
     @email = email
+    @remark = remark
+    
     ContactMailer.say_hello_to(@name, 
                                @cellphone,  
                                @email, 
@@ -17,6 +19,7 @@ class MailWorker
                                @telephone,  
                                @appointment, 
                                @address,
-                               @telephone).deliver_now
+                               @telephone,
+                               @remark).deliver_now
   end
 end
