@@ -3,7 +3,7 @@ class ReservesController < ApplicationController
   before_action  :find_user_reserve, only: [:edit, :update, :destroy, :show]
   authorize_resource
   def index
-    @reserves = current_user.reserves.all.order(id: :desc)
+    @reserves = current_user.reserves.order(id: :desc)
   end
   def new
     @reserve = current_user.reserves.new
