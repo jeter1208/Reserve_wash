@@ -7,10 +7,11 @@
 CSS: Tailwindcss
 
 資料庫: PGSQL
+## 功能介紹
 
 Rails Action Mailer發信
 
-使用sidekiq控制發信時間
+當客戶新增表單時使用sidekiq控制發信時間
 
 後台更新表單狀態
 
