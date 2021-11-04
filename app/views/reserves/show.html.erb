@@ -1,13 +1,14 @@
 <h1 class="text-center">預約單</h1>
-<% if @reserve.status === '待確認' %>
-  <div class='text-center'>
+<% if @reserve.status == '待確認' %>
+  <div class='text-center mt-4 text-blue-400 text-xl'>
     <%= link_to '查看預約紀錄', reserves_path %>
-  </div>
-  <div>
     <%= link_to '編輯預約單', edit_reserve_path %>
   </div>
-<% elsif @reserve.status %>
-
+<% elsif @reserve.status == '已取消' || '無法清洗' || '預約成功' || '清洗完成' %>
+  <div class='text-center mt-4 text-blue-400 text-xl'>
+    <%= link_to '查看預約紀錄', reserves_path %>
+  </div>
+<% end %>
 <div class="relative bg-white">
   <div class="absolute inset-0">
     <div class="absolute inset-y-0 left-0 w-1/2 "></div>
@@ -88,7 +89,11 @@
         </div>
 
         <div class='mt-2'>
-          希望時間: <%= @reserve.appointment.strftime("%Y/%m/%d %p%H:%M") %> 實際時間以師傅連絡後為主
+          希望時間: <%= @reserve.appointment %> 實際時間以師傅連絡後為主
+        </div>
+        
+        <div class="mt-2">
+          確定時間: <%= @reserve.determine_time %>
         </div>
 
         <div class='mt-2'>
@@ -100,7 +105,7 @@
         </div>
 
         <div class='mt-8'>
-          照片: <%= @reserve.image %>
+          照片: <%= image_tag @reserve.image_url if @reserve.image_url.present?  %>
         </div>
       </div>
     </div>
