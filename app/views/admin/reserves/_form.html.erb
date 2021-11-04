@@ -93,6 +93,7 @@
             <%= f.label :genre, '直立式/滾筒式', class: 'block' %>
             <%= f.select :genre,["直立式", "滾筒式"], class:'bg-white' %>
           </div>
+
           <div>
             <%= f.label :appointment, '希望時間' %>
             <%= f.datetime_field :appointment, class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" %>
@@ -101,16 +102,24 @@
               <% end %>
           </div>
           <div>
+            <%= f.label :determine_time, '確定時間' %>
+            <%= f.datetime_field :determine_time, class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"%>
+          </div>
+
+          <div>
             <%= f.label :remark, '備註' %>
             <%= f.text_area :remark,placeholder: '其他特殊需求',class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md" %>
           </div>
+
           <div>
             <%= f.label :status, '預約單狀態' %>
-            <%= f.select :status, ['待確認', '預約成功','清洗完成']  %>
+            <%= f.select :status, ['已取消','無法清洗','待確認', '預約成功','清洗完成']  %>
           </div>
+
           <div>
             <%= f.submit '送出' ,class: "inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-4"%>
           </div>
+
         <% end %>
       </div>
     </div>
