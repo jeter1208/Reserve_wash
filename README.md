@@ -1,24 +1,19 @@
-# README
+# 衣級棒-新北三重預約系統
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby version 2.6.3
 
-Things you may want to cover:
+Rails 6.1.4
 
-* Ruby version
+Tailwindcss
 
-* System dependencies
+PGSQL
 
-* Configuration
+Rails Action Mailer發信
 
-* Database creation
+使用sidekiq控制發信時間
 
-* Database initialization
+後台更新表單狀態
 
-* How to run the test suite
+google三方登入
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+提供客戶更佳的預約方式，能夠透過會員系統保留客戶資料，並且記錄客戶清洗時間，讓後續需要查詢資料更方便，當客戶填單完成能夠及時發信通知，待工作告一段落時與客戶進行聯繫，讓客戶自行選擇所想要的時間再進行後續的溝通聯絡。
