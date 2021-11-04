@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    
+  include Pagy::Backend
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, :alert => exception.message #導向另一個頁面
   end
