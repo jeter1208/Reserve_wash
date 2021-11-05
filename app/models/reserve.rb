@@ -1,6 +1,7 @@
 class Reserve < ApplicationRecord
   belongs_to :user
   mount_uploader :image, ImageUploader
+  scope :published_since, -> (date) { where(published: true).where('published_date <= ?', date) }
   acts_as_paranoid
   # 假刪除
   resourcify

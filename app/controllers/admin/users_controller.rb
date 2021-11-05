@@ -1,9 +1,8 @@
 class Admin::UsersController < ApplicationController
     authorize_resource
   def index
-    @users = User.all
+    @pagy, @users = pagy(User.all, items: 9)
   end
   def destory
-    
   end
 end
