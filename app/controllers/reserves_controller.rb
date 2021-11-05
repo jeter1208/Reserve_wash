@@ -4,6 +4,7 @@ class ReservesController < ApplicationController
   authorize_resource
   def index
     @reserves = current_user.reserves.order(id: :desc)
+   
   end
   def new
     @reserve = current_user.reserves.new

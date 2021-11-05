@@ -1,5 +1,8 @@
 <h1 class= 'text-center'>所有預約單</h1>
-
+<%= search_form_for @q do |f| %>
+  <%= f.search_field :name_or_email %>
+  <%= f.submit %>
+<% end %>
 <div class="flex flex-col">
   <div class="-my-2 overflow-x-auto ">
     <div class="py-6 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -92,3 +95,4 @@
     </div>
   </div>
 </div>
+<%== pagy_nav(@pagy) %>

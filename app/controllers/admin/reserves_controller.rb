@@ -3,7 +3,9 @@ class Admin::ReservesController < ApplicationController
     authorize_resource :admin
     def index
       # @reserves = Reserve.order(id: :desc)
-      @pagy, @reserves = pagy(Reserve.order(id: :desc))
+      @pagy, @reserves = pagy(Reserve.order(id: :desc), items: 9)
+      @q = Reserve.all.ransack(params[:q])
+      @reserves = @q.result(distinct: true)
     end
   
     def edit
@@ -25,13 +27,6 @@ class Admin::ReservesController < ApplicationController
           redirect_to admin_reserves_path
     end
     
-    def search 
-      if params[:keyword]
-        @reserve = Reserve.where("name LIKE ?", "%#{params[:keyword]}%")
-      else
-        @reserves = Reserve.all
-      end
-    end
 
     private
       def reserve_params
