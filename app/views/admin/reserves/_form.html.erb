@@ -112,8 +112,8 @@
           </div>
 
           <div>
-            <%= f.label :status, '預約單狀態' %>
-            <%= f.select :status, ['已取消','無法清洗','待確認', '預約成功','清洗完成']  %>
+            <%= f.label :status, '預約單狀態',class: 'block' %>
+            <%= f.select :status, ['已取消','無法清洗','待確認', '預約成功','清洗完成'],class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"  %>
           </div>
 
           <div>

@@ -1,4 +1,4 @@
-<h1 class='text-center'>查看預約紀錄</h1>
+<h1 class='text-center'>預約紀錄</h1>
 
 <div class="flex flex-col">
   <div class="-my-2 overflow-x-auto ">
@@ -75,12 +75,12 @@
               </td>
               <% if reserve.status === '待確認' %>
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                 <%= link_to '查看', reserve_path(reserve) %>
+                 <%= link_to '預約單', reserve_path(reserve) %>
                  <%= link_to '編輯', edit_reserve_path(reserve) %>
               
               <% elsif reserve.status === '預約成功' || '清洗完成' || '已取消' || '無法清洗' %>
                 <td class="px-6 py-4 whitespace-nowrap text-center text-lg font-medium">
-                 <%= link_to '查看', reserve_path(reserve) %>
+                 <%= link_to '預約單', reserve_path(reserve) %>
                 </td>
               <% end %>  
             </tr>
