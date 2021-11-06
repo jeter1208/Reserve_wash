@@ -18,10 +18,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
-  end
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+    end
 
     # render json: "Authorization failed. 權限錯誤，請洽管理人員。
     # # render :file => "#{Rails.root}/public/403.html", :status => 403, :layout => false

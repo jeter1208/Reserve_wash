@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   namespace :admin, path: 'asigaiboho' do
     resources :reserves 
     resources :users
+    get 'search', to: 'reserves#search'
   end
 
     resources :reserves 
