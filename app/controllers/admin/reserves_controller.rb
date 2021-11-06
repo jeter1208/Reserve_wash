@@ -2,10 +2,7 @@ class Admin::ReservesController < ApplicationController
     before_action  :find_user_reserve, only: [:edit, :update, :destroy, :show]
     authorize_resource :admin
     def index
-      # @reserves = Reserve.order(id: :desc)
-      @pagy, @reserves = pagy(Reserve.order(id: :desc), items: 9)
-      @q = Reserve.all.ransack(params[:q])
-      @reserves = @q.result(distinct: true)
+      @pagy, @reserves = pagy(Reserve.order(id: :desc), items: 10)
     end
   
     def edit
@@ -23,11 +20,19 @@ class Admin::ReservesController < ApplicationController
     end
   
     def destroy
-          @reserve.update(deleted_at: Time.now)
-          redirect_to admin_reserves_path
+      @reserve.update(deleted_at: Time.now)
+      redirect_to admin_reserves_path
+    end
+
+    def search
+      if params[:keyword]
+        @pagy, @reserves = pagy(Reserve.where("name LIKE ? OR email LIKE ?", "%#{params[:keyword]}%","%#{params[:keyword]}%").order(id: :desc), items: 10)
+      else
+        @pagy, @reserves = pagy(Reserve.order(id: :desc), items: 10)
+      end
+      render :index
     end
     
-
     private
       def reserve_params
         params.require(:reserve).permit(:name, 

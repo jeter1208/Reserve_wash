@@ -1,6 +1,6 @@
 <h1 class= 'text-center'>所有預約單</h1>
-<%= search_form_for @q do |f| %>
-  <%= f.search_field :name_or_email %>
+<%= form_with url:admin_search_path, method: :get do |f| %>
+  <%= f.search_field :keyword %>
   <%= f.submit %>
 <% end %>
 <div class="flex flex-col">
@@ -46,7 +46,6 @@
             </tr>
           </thead>
           <tbody>
-            <!-- Odd row -->
             <% @reserves.each do |reserve| %>
             <tr class="bg-white">
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
@@ -83,16 +82,14 @@
                                                 method: 'delete',
 						                        data: { confirm: '確定嗎？', id: reserve.id } %>
               </td>
-            </tr>
-
-            <!-- Even row -->
-            
+            </tr>          
             <% end %>
-            <!-- More people... -->
           </tbody>
         </table>
       </div>
     </div>
   </div>
 </div>
-<%== pagy_nav(@pagy) %>
+<div class='text-center'>
+  <%== pagy_nav(@pagy) %>
+</div>
