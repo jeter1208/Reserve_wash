@@ -2,11 +2,11 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  config.action_mailer.default_url_options = { :host => "secret-island-03184.herokuapp.com" }
   config.action_mailer.smtp_settings = {
     address:              'smtp.mailgun.org',
     port:                 587,
-    domain:               'sugoii.live',
+    domain:               'secret-island-03184.herokuapp.com',
     user_name:            ENV["mailgun_user_name"],
     password:             ENV["mailgun_user_password"],
     authentication:       'plain',

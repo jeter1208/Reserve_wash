@@ -10,6 +10,9 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:google_oauth2]
 
   has_many :reserves
+  
+  def before_add_method(role)
+  end
 
   def assign_default_role
     self.add_role(:user) if self.roles.blank?
