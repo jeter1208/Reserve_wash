@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   rolify :before_add => :before_add_method
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
   before_create :generate_authentication_token
   mount_uploader :image, ImageUploader
   after_create :assign_default_role
@@ -11,12 +10,6 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:google_oauth2]
 
   has_many :reserves
-  
-  def before_add_method(role)
-    # do something before it gets added
-  end
-
- 
 
   def assign_default_role
     self.add_role(:user) if self.roles.blank?
