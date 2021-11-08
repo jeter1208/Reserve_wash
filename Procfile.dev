@@ -1,4 +1,4 @@
 redis: redis-server
 web: rails s -p 3000
-worker: bundle exec sidekiq -e production -C config/sidekiq.yml
+worker: bundle exec sidekiq 
 client: sh -c 'rm -rf public/packs/* || true && bin/webpack -w'
