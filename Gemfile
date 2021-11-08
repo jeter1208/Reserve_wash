@@ -32,6 +32,7 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0'
 gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 gem 'paranoia', '~> 2.4', '>= 2.4.3'
 gem 'babosa'
+gem "fog-aws" #用雙引號，因為裡面有特殊字元"-"
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
