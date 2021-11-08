@@ -1,5 +1,4 @@
+bundle exec sidekiq -q default -q mailers
 redis: redis-server
 web: rails s -p 3000
-bundle exec sidekiq -q default -q mailers
-background_worker: bundle exec sidekiq -q background_queue
 client: sh -c 'rm -rf public/packs/* || true && bin/webpack -w'
