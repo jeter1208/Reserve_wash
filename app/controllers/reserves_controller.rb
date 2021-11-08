@@ -23,7 +23,7 @@ class ReservesController < ApplicationController
                             @reserve.telephone,
                             @reserve.email,
                             @reserve.remark)
-      redirect_to root_path, notice:'填寫成功'
+      redirect_to root_path, notice:'填寫成功,請等候老闆與您聯繫~'
     else
       render :new
     end

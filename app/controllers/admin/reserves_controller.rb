@@ -26,7 +26,7 @@ class Admin::ReservesController < ApplicationController
 
     def search
       if params[:keyword]
-        @pagy, @reserves = pagy(Reserve.where("name LIKE ? OR email LIKE ?", "%#{params[:keyword]}%","%#{params[:keyword]}%").order(id: :desc), items: 10)
+        @pagy, @reserves = pagy(Reserve.where("name LIKE ? OR email LIKE ? OR status LIKE ?", "%#{params[:keyword]}%","%#{params[:keyword]}%", "%#{params[:keyword]}%").order(id: :desc), items: 10)
       else
         @pagy, @reserves = pagy(Reserve.order(id: :desc), items: 10)
       end

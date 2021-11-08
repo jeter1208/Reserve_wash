@@ -103,7 +103,7 @@
           </div>
           <div>
             <%= f.label :determine_time, '確定時間' %>
-            <%= f.datetime_field :determine_time, class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"%>
+            <%= f.datetime_field :determine_time, min: Date.today, class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"%>
           </div>
 
           <div>
