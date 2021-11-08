@@ -1,8 +1,10 @@
 <h1 class= 'text-center'>所有預約單</h1>
+<div class="text-center">
 <%= form_with url:admin_search_path, method: :get do |f| %>
   <%= f.search_field :keyword %>
-  <%= f.submit %>
+  <%= f.submit '搜尋' %>
 <% end %>
+</div>
 <div class="flex flex-col">
   <div class="-my-2 overflow-x-auto ">
     <div class="py-6 align-middle inline-block min-w-full sm:px-6 lg:px-8">

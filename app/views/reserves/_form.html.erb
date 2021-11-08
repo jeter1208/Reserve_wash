@@ -52,28 +52,28 @@
       <div class="max-w-lg mx-auto lg:max-w-none">
         <%= form_for(reserve) do |f| %>
           <div>
-            <%= f.label :name, '聯絡人', class: 'mb-2' %>
-            <%= f.text_field :name, class: "block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"%>
+            <%= f.label :name, '聯絡人', class: 'mb-2 text-lg' %>
+            <%= f.text_field :name, class: "block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" %>
             <% if f.object.errors[:name] %>
 	            <span class='text-red-600'><%= f.object.errors[:name].first %></span>
 	          <% end %>
           </div>
           <div>
-            <%= f.label :email, '信箱', class: 'mt-2'%>
+            <%= f.label :email, '信箱', class: 'mt-2 text-lg' %>
             <%= f.email_field :email, class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" %>
               <% if f.object.errors[:email] %>
 		            <span class='text-red-600'><%= f.object.errors[:email].first %></span>
 	            <% end %>
           </div>
           <div>
-            <%= f.label :address, '地址' %>
+            <%= f.label :address, '地址', class: 'mt-2 text-lg' %>
             <%= f.text_field :address, class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" %>
               <% if f.object.errors[:address] %>
 		            <span class='text-red-600'><%= f.object.errors[:address].first %></span>
             	<% end %>
           </div>
           <div>
-           <%= f.label :cellphone, '行動電話' %>
+           <%= f.label :cellphone, '行動電話', class: 'mt-2 text-lg' %>
            <%= f.text_field :cellphone, class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" %>
              <% if f.object.errors[:cellphone] %>
 			         <span class='text-red-600'><%= f.object.errors[:cellphone].first %></span>
@@ -81,33 +81,33 @@
        
           </div>
           <div>
-            <%= f.label :telephone, '電話' %>
+            <%= f.label :telephone, '電話', class: 'mt-2 text-lg' %>
             <%= telephone_field(:reserve, :telephone,class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md") %>
           </div>
 
           <div>
-            <%= f.label :brand, '洗衣機廠牌' %>
+            <%= f.label :brand, '洗衣機廠牌', class: 'mt-2 text-lg' %>
             <%= f.text_field :brand, placeholder: '例如:國際、三洋',class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" %>
           </div>
 
           <div>
-            <%= f.label :genre, '直立式/滾筒式', class: 'block' %>
+            <%= f.label :genre, '直立式/滾筒式', class: 'block text-lg' %>
             <%= f.select :genre,["直立式", "滾筒式"], class:"bg-white border-2 mt-4 mb-4" %>
           </div>
           <div>
-            <%= f.label :appointment, '此為希望預約時間 實際預約時間以師傅聯絡為主',class: 'mt-4' %>
-            <%= f.datetime_field :appointment, class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" %>
+            <%= f.label :appointment, '此為希望預約時間 實際預約時間以師傅聯絡為主',class: 'mt-4 text-lg' %>
+            <%= f.datetime_field :appointment, min: Date.today, class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md" %>
               <% if f.object.errors[:appointment] %>
                 <span class='text-red-600'><%= f.object.errors[:appointment].first %></span>
               <% end %>
           </div>
           <div>
-            <%= f.label :remark, '備註' %>
+            <%= f.label :remark, '備註', class: 'mt-2 text-lg' %>
             <%= f.text_area :remark,placeholder: '其他特殊需求',class:"block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md" %>
           </div>
 
           <div>
-            <%= f.label :image, '照片' ,class: 'block'%>
+            <%= f.label :image, '照片' ,class: 'block text-lg'%>
             <%= f.file_field :image %>
           </div>
 
