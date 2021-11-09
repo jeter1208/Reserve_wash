@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :reserves 
     resources :users
     get 'search', to: 'reserves#search'
+    get 'searchs', to: 'users#searchs'
   end
 
     resources :reserves 
