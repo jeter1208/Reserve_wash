@@ -1,6 +1,6 @@
 # 衣級棒-新北三重預約系統
 ## 使用技術
-語言: Ruby version 2.6.3
+語言: Ruby version 3.0.2
 
 框架: Rails 6.1.4
 
